@@ -31,17 +31,18 @@
 		</div>	
 	</nav>
 	
-	<div class="card" style="padding-top: 50px;">
+	<div class="card" style="padding-top: 5px;">
 	<div class="card-body">
 		<div th:switch="${employees}" class="container my-5">
 			<p class="my-5">
 				<a href="/edit" class="btn btn-primary">
 				<i class="fas fa-user-plus ml-2"> Add Employee</i></a>
-			</p>
-			<p class="my-5">
-				<a href="/edit" class="btn btn-primary">
-				<i class="fas fa-user-plus ml-2"> Find Employee by Job Role</i></a>
-			</p>
+			</p>				
+			
+			<form th:action="@{/findEmployeesByjobRole}" method="get">
+					<input id="findByJob" type="text" name="jobRole">
+					<button type="submit">Find Employees by Job</button>
+			</form>
 			
 			<div class="col-md-10">
 				<h2 th:case="null">No record found !!</h2>
@@ -65,7 +66,7 @@
 								<td th:text="${employee.salary}"></td>
 								<td>
 									<a th:href="@{/edit/{id}(id=${employee.id})}" class="btn btn-primary">
-										<i class="fas fa-user-times ml-3"></i>									
+										<i class="fas fa-user-edit ml-2"></i>									
 									</a>
 								</td>
 								<td>

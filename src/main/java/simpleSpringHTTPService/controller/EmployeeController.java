@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -71,5 +72,21 @@ public class EmployeeController {
 		return "redirect:/";
 	}
 	
+	//Find all employees by job role
+	@GetMapping ("/findEmployeesByjobRole")
+	public String findEmployeesByjobRole (Model model, String jobRole) {
+		
+		if (jobRole !=null) {
+			
+			model.addAttribute("employees", service.findEmployeesByjobRole(jobRole));
+		
+		} else {
+			
+			model.addAttribute("employees", service.getAllEmployees());
+		}
+		
+		return "list-employees";
+		
+	}
 	
 }

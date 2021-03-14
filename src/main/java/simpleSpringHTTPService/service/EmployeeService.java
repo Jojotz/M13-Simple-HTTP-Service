@@ -98,4 +98,10 @@ public class EmployeeService {
 			throw new RecordNotFoundException ("No employee record exists for given id");
 		}
 	}
+	
+	//Get employees by Job Role
+	public List<EmployeeEntity> findEmployeesByjobRole (String jobRole) {
+		
+		return repository.findEmployeesByjobRole(jobRole);
+	}
 }
