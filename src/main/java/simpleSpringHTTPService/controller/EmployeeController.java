@@ -32,6 +32,16 @@ public class EmployeeController {
 		return "list-employees";
 	}
 	
+	//Gets an employee by Id
+	@GetMapping ("/{id}")
+	public String findEmployeeById (Model model, Long id)	
+		throws RecordNotFoundException {
+		System.out.println("findEmployeeById" + id);
+		model.addAttribute("employees", service.getEmployeeById(id));
+				
+		return "list-employees";
+	}
+	
 	//Updates an employee by Id
 	@RequestMapping (path= {"/edit", "/edit/{id}"})
 	public String editEmployeeById(Model model, @PathVariable("id") Optional<Long> id) 
@@ -72,7 +82,7 @@ public class EmployeeController {
 		return "redirect:/";
 	}
 	
-	//Find all employees by job role
+	//Finds all employees by job role
 	@GetMapping ("/findEmployeesByjobRole")
 	public String findEmployeesByjobRole (Model model, String jobRole) {
 		

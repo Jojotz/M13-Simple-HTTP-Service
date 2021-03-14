@@ -43,6 +43,10 @@
 					<input id="findByJob" type="text" name="jobRole">
 					<button type="submit">Find Employees by Job</button>
 			</form>
+			<form th:action="@{/{id}}" method="get">
+					<input id="findById" type="number" name="id">
+					<button type="submit">Find Employee by Id</button>
+			</form>
 			
 			<div class="col-md-10">
 				<h2 th:case="null">No record found !!</h2>
@@ -50,6 +54,7 @@
 					<table class="table table-striped table-responsive-md">
 						<thead>
 							<tr>
+								<th> Id </th>
 								<th> First Name </th>
 								<th> Last Name </th>
 								<th> Job Role </th>
@@ -60,6 +65,7 @@
 						</thead>
 						<tbody>
 							<tr th:each="employee : ${employees}">
+								<td th:text="${employee.id}"></td>
 								<td th:text="${employee.firstName}"></td>
 								<td th:text="${employee.lastName}"></td>
 								<td th:text="${employee.jobRole}"></td>

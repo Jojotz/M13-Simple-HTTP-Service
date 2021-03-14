@@ -36,7 +36,7 @@ public class EmployeeService {
 	
 	public EmployeeEntity getEmployeeById(Long id) throws RecordNotFoundException {
 		
-		System.out.println ("getAllEmployeeById");
+		System.out.println ("getEmployeeById");
 		Optional<EmployeeEntity> employee = repository.findById(id);
 		
 		if (employee.isPresent()) {
