@@ -45,7 +45,7 @@ public class EmployeeService {
 			
 		} else {
 			
-			throw new RecordNotFoundException ("No employee record exists for given id");
+			throw new RecordNotFoundException ("No employee record exists for given id: " + id);
 			
 		}
 	}
@@ -95,7 +95,7 @@ public class EmployeeService {
 			repository.deleteById(id);
 		} else {
 			
-			throw new RecordNotFoundException ("No employee record exists for given id");
+			throw new RecordNotFoundException ("No employee record exists for given id: " + id);
 		}
 	}
 	

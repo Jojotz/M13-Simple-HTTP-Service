@@ -34,8 +34,7 @@ public class EmployeeController {
 	
 	//Gets an employee by Id
 	@GetMapping ("/{id}")
-	public String findEmployeeById (Model model, Long id)	
-		throws RecordNotFoundException {
+	public String findEmployeeById (Model model, Long id) throws RecordNotFoundException {
 		System.out.println("findEmployeeById" + id);
 		model.addAttribute("employees", service.getEmployeeById(id));
 				
@@ -44,8 +43,7 @@ public class EmployeeController {
 	
 	//Updates an employee by Id
 	@RequestMapping (path= {"/edit", "/edit/{id}"})
-	public String editEmployeeById(Model model, @PathVariable("id") Optional<Long> id) 
-			throws RecordNotFoundException {
+	public String editEmployeeById(Model model, @PathVariable("id") Optional<Long> id) throws RecordNotFoundException {
 		
 		System.out.println("editEmployeeById" + id);
 		if (id.isPresent()) {
@@ -60,8 +58,7 @@ public class EmployeeController {
 		
 	//Deletes an employee by Id
 	@RequestMapping(path= "/delete/{id}")
-	public String deleteEmployeeById (Model model, @PathVariable("id") Long id) 
-			throws RecordNotFoundException {
+	public String deleteEmployeeById (Model model, @PathVariable("id") Long id) throws RecordNotFoundException {
 		
 		System.out.println("deleteEmployeeById" + id);
 		
